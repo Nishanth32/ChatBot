@@ -206,6 +206,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         //No Stored Response Found
         if(responseObject==null)
         {
+            if(queryAnalyzer.DoQueryMatch(userQuery,"hi feed me"))
+            {
+                sendBotMessage("I am Listening",true); return;
+            }
             sendBotMessage("Sorry I do not Understand. You said "+userQuery,true); return;
         }
 

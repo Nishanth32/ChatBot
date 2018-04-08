@@ -28,7 +28,7 @@ public class QueryAnalyzer {
             if(DoQueryMatch(userQuery,currentKey))
             {
                 // User Question matched the described data
-                return QuestionTree.rootTable.get(key);
+                return new LinkedHashMap<>(QuestionTree.rootTable.get(key));
             }
         }
         // If there is no Match

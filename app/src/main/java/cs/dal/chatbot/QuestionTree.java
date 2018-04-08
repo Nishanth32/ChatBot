@@ -20,9 +20,9 @@ public class QuestionTree {
         LinkedHashMap<String,String> q1 = new LinkedHashMap<>();
         rootTable.put("Find_Restaurants_near_me",q1);
         q1.put("$q","Would you like to update your Location");
-        q1.put("$Location","Please tell me your current location ?");
+        q1.put("$Location","Please tell me a location ?");
         q1.put("$Cuisine","Sure, Help us with your Favourite Cuisine ?");
-        q1.put("there_you_go","Here you go!");
+        q1.put("there_you_go","Okay Here is what I found!");
     }
 
 }

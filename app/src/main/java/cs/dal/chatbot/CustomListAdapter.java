@@ -1,6 +1,7 @@
 package cs.dal.chatbot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,10 +78,23 @@ public class CustomListAdapter extends BaseAdapter {
         }
 
 
-
-        BusinessModel listModel = new BusinessModel();
+        view.setTag(restaurantlist.get(i));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BusinessModel businessModel = (BusinessModel) v.getTag();
+                Intent callIntent = new Intent(context,DetailList.class);
+                callIntent.putExtra("BusinessModel",businessModel);
+                context.startActivity(callIntent);
+            }
+        });
         //setting values
-        restaurantname.setText(restaurantlist.get(i).getName());
+        String Name = restaurantlist.get(i).getName().replace('"',' ').trim();
+        if(Name.length()>15)
+        {
+            Name = Name.subSequence(0,15).toString();
+        }
+        restaurantname.setText(Name);
         country.setText(restaurantlist.get(i).getCountry());
 
         float ratingStars = Math.round(Float.parseFloat(restaurantlist.get(i).getStars()));

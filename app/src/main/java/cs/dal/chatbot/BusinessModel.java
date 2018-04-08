@@ -1,10 +1,39 @@
 package cs.dal.chatbot;
 
+import java.io.Serializable;
+
 /**
  * Created by jebes on 4/4/2018.
  */
 
-public class BusinessModel {
+public class BusinessModel implements Serializable {
+
+
+    public String food_polarity_score;
+
+    public String discount_polarity_score;
+
+    public String overall_compound_score;
+
+    public String service_compound_score;
+
+    public String food_compound_score;
+
+    public String overall_polarity_score;
+
+    public String compound_star_value;
+
+    public String polartiy_star_value;
+
+    public String ambience_compound_score;
+
+    public String averaged_star_value;
+
+    public String service_polarity_score;
+
+    public String ambience_polarity_score;
+
+    public String discount_compound_score;
 
     private String review_count;
 

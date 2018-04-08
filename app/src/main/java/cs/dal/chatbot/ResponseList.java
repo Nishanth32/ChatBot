@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,12 +34,9 @@ public class ResponseList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         hotelListView = (ListView) findViewById(R.id.restList);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String qString = getIntent().getExtras().getString(MainActivity.QString);
         new CallService().execute("http://feedmefood.mybluemix.net/business?json=true"+qString);
@@ -64,14 +63,12 @@ public class ResponseList extends AppCompatActivity {
                 restaurantlist.clear();
                 JSONArray jsonArray = new JSONArray(buffer.toString());
                 int length = jsonArray.length();
+                Gson gson = new Gson();
                 for(int i  = 0 ; i < length ; i++)
                 {
                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                    BusinessModel listModel = new BusinessModel();
+                    BusinessModel listModel = gson.fromJson(jsonObject.toString(),BusinessModel.class);
 
-                    listModel.setName(jsonObject.getString("name"));
-                    listModel.setCountry(jsonObject.getString("country"));
-                    listModel.setStars(jsonObject.getString("stars"));
                     restaurantlist.add(listModel);
                 }
 
