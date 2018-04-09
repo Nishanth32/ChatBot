@@ -35,7 +35,10 @@
         <activity
             android:name=".DetailList"
             android:label="@string/title_activity_detail_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TestReview"
+            android:label="@string/title_activity_test_review"></activity>
     </application>
 
 </manifest>

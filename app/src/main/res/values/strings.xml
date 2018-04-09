@@ -7,5 +7,10 @@
     <string name="tap_on_mic">Tap on mic to speak</string>
     <string name="title_activity_response_list">ResponseList</string>
     <string name="title_activity_detail_list">DetailList</string>
-
+    <string name="title_activity_test_review">TestReview</string>
+    <string name="button_name">Get Sentiment</string>
+    <string name="review_hint">Enter Your Review Here</string>
+    <string name="review_rating">Star Rating</string>
+    <string name="polarity_score">Polarity Score</string>
+    <string name="compound_score">Compound Score</string>
 </resources>
