@@ -1,11 +1,16 @@
 package cs.dal.chatbot;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
@@ -30,12 +35,37 @@ public class ResponseList extends AppCompatActivity {
     ArrayList<BusinessModel> restaurantlist = new ArrayList<>();
     ListView hotelListView = null;
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.testRating:
+                startActivity(new Intent(this, TestReview.class));
+                return true;
+            case R.id.help:
+                new AlertDialog.Builder(this).setMessage("#AskFeedMeTeam").setTitle("Help").show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response_list);
 
         hotelListView = (ListView) findViewById(R.id.restList);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbarRes);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         String qString = getIntent().getExtras().getString(MainActivity.QString);

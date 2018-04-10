@@ -7,22 +7,25 @@
     tools:context="cs.dal.chatbot.TestReview">
 
     <EditText
+        android:id="@+id/review"
         android:layout_width="372dp"
         android:layout_height="135dp"
-        android:id="@+id/review"
-        android:hint="@string/review_hint"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
         android:ellipsize="start"
         android:gravity="start"
-        android:background="@android:color/white"
+        android:textColor="@color/colorPrimary"
+        android:hint="@string/review_hint"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        tools:text="Data" />
 
     <Button
         android:id="@+id/getsentiment"

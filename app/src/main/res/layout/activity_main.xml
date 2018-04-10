@@ -8,6 +8,7 @@
     tools:context="cs.dal.chatbot.MainActivity">
 
     <!--List view for displaying chat messages-->
+
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
